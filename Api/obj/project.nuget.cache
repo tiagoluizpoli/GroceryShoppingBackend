@@ -1,10 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "x9JRgCC5HbHsiEXKctlhZjRBMAKbrZiK4sn+kozu7Vj3NMkNnsGRXF2KNSzHhKqLXNKfSOacNaZXEPMt72WUZg==",
+  "dgSpecHash": "D0kGZYwQ0BLfBodZOp7iOQ310+IKH++Hs6/AXpq2fPZXm3rdPYgx+mMdJqQOK+tUqBdnZb7ewbE2WwkophfNVw==",
   "success": true,
   "projectFilePath": "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Api\\Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\tyhh\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\tyhh\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\tyhh\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\tyhh\\.nuget\\packages\\mapster\\7.4.0-pre06\\mapster.7.4.0-pre06.nupkg.sha512",
+    "C:\\Users\\tyhh\\.nuget\\packages\\mapster.core\\1.2.1-pre04\\mapster.core.1.2.1-pre04.nupkg.sha512",
+    "C:\\Users\\tyhh\\.nuget\\packages\\mapster.dependencyinjection\\1.0.1-pre02\\mapster.dependencyinjection.1.0.1-pre02.nupkg.sha512",
     "C:\\Users\\tyhh\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.9\\microsoft.aspnet.mvc.5.2.9.nupkg.sha512",
     "C:\\Users\\tyhh\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.9\\microsoft.aspnet.razor.3.2.9.nupkg.sha512",
     "C:\\Users\\tyhh\\.nuget\\packages\\microsoft.aspnet.webpages\\3.2.9\\microsoft.aspnet.webpages.3.2.9.nupkg.sha512",

@@ -216,6 +216,9 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
+              "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Contracts\\Contracts.csproj": {
+                "projectPath": "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Contracts\\Contracts.csproj"
+              },
               "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Domain\\Domain.csproj": {
                 "projectPath": "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Domain\\Domain.csproj"
               }
@@ -232,6 +235,26 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.1, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.5.1, )"
+            },
+            "Mapster": {
+              "target": "Package",
+              "version": "[7.4.0-pre06, )"
+            },
+            "Mapster.Core": {
+              "target": "Package",
+              "version": "[1.2.1-pre04, )"
+            },
+            "Mapster.DependencyInjection": {
+              "target": "Package",
+              "version": "[1.0.1-pre02, )"
+            },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[7.0.0, )"

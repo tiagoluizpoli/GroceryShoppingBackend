@@ -9,6 +9,23 @@ namespace Domain.EFSetup.Entities
 {
     public class ShoppingEventEntity : AuditableEntity
     {
+        public ShoppingEventEntity()
+        {
+        }
+
+        public ShoppingEventEntity(DateTime startDateTime, Guid startedById, UserEntity startedBy, Guid familyId,
+            FamilyEntity family, Guid marketId, MarketEntity market, List<ShoppingListEntity> shoppingListEntities)
+        {
+            StartDateTime = startDateTime;
+            StartedById = startedById;
+            StartedBy = startedBy;
+            FamilyId = familyId;
+            Family = family;
+            MarketId = marketId;
+            Market = market;
+            ShoppingListEntities = shoppingListEntities;
+        }
+
         public DateTime StartDateTime { get; set; }
         public Guid StartedById { get; set; }
         public UserEntity StartedBy { get; set; }

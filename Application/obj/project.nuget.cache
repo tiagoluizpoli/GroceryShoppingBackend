@@ -1,9 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "CaL6ptrpb8m2jMCGH28fNN1XDiYrtX2iwhPSCGp8U58cXkAuIjcL3jiT4i6qXgj6OWQq2PHuH5GHA00HTz2kaA==",
+  "dgSpecHash": "1NjmOq4SglffY4XzxUP5M2kYcINIyTczmXz8g1OQhzkwG/tIMrcZezb9B5q5DLsQBeyDTHkcq29ep2KZuz822A==",
   "success": true,
   "projectFilePath": "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Application\\Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\tyhh\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\tyhh\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
+    "C:\\Users\\tyhh\\.nuget\\packages\\mapster\\7.4.0-pre06\\mapster.7.4.0-pre06.nupkg.sha512",
+    "C:\\Users\\tyhh\\.nuget\\packages\\mapster.core\\1.2.1-pre04\\mapster.core.1.2.1-pre04.nupkg.sha512",
+    "C:\\Users\\tyhh\\.nuget\\packages\\mapster.dependencyinjection\\1.0.1-pre02\\mapster.dependencyinjection.1.0.1-pre02.nupkg.sha512",
     "C:\\Users\\tyhh\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.3\\microsoft.entityframeworkcore.7.0.3.nupkg.sha512",
     "C:\\Users\\tyhh\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.3\\microsoft.entityframeworkcore.abstractions.7.0.3.nupkg.sha512",
     "C:\\Users\\tyhh\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.3\\microsoft.entityframeworkcore.analyzers.7.0.3.nupkg.sha512",

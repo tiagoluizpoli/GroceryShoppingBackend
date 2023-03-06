@@ -9,6 +9,20 @@ namespace Domain.EFSetup.Entities
 {
     public class ProductEntity : DescriptiveEntity
     {
+        public ProductEntity()
+        {
+        }
+
+        public ProductEntity(Guid id, DateTime createdAt, DateTime updatedAt, string name, string? description,
+            bool enabled, string barCode, string imgUrl, MergedProductEntity mergedProduct,
+            List<ShoppingListEntity> shoppingList) : base(id, createdAt, updatedAt, name, description, enabled)
+        {
+            BarCode = barCode;
+            ImgUrl = imgUrl;
+            MergedProduct = mergedProduct;
+            ShoppingList = shoppingList;
+        }
+
         public string BarCode { get; set; }
         public string ImgUrl { get; set; }
         public MergedProductEntity MergedProduct { get; set; }

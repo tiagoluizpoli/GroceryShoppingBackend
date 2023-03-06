@@ -9,6 +9,25 @@ namespace Domain.EFSetup.Entities
 {
     public class UserEntity : AuditableEntity
     {
+        public UserEntity()
+        {
+        }
+
+
+        public UserEntity(Guid id, DateTime createdAt, DateTime updatedAt, string name, string lastName,
+            string socialSecurityNumber, string email, bool enabled, Guid familyId, FamilyEntity familyEntity,
+            List<ShoppingEventEntity> shoppingEventEntities) : base(id, createdAt, updatedAt)
+        {
+            Name = name;
+            LastName = lastName;
+            SocialSecurityNumber = socialSecurityNumber;
+            Email = email;
+            Enabled = enabled;
+            FamilyId = familyId;
+            FamilyEntity = familyEntity;
+            ShoppingEventEntities = shoppingEventEntities;
+        }
+
         public string Name { get; set; }
         public string LastName { get; set; }
         public string SocialSecurityNumber { get; set; }
@@ -18,6 +37,5 @@ namespace Domain.EFSetup.Entities
         public FamilyEntity FamilyEntity { get; set; }
 
         public List<ShoppingEventEntity> ShoppingEventEntities { get; set; }
-
     }
 }
