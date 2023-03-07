@@ -15,5 +15,12 @@ public static partial class DatabaseErrors
                 code: $"{ErrorBase}NotFound.{entityName}",
                 description: $"{entityName} doesn't exists");
         }
+
+        public static Error UniqueConstraint(Exception exception)
+        {
+            return Error.Conflict(
+                code: $"{ErrorBase}UniqueConstraint",
+                description: $"Details: {exception.Message}");
+        }
     }
 }

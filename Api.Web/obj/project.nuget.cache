@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "FFbZQEJjsn3c+tq8EQXJbdVUocE+wEbFUKz67SUw1VqVqG8YWCdHfQ7cTiQRinkhRPfdPBC2BfUhzq+lwlY7eQ==",
+  "dgSpecHash": "cwmjc0si/hBeuTgto1rOd8Bo4n5iDZEYd97Wt5DKHd3I2IYlYw52QIl2rYHPU4nylvDgnLeCRmzedlkqKgLPWQ==",
   "success": true,
   "projectFilePath": "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Api.Web\\Api.Web.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\tyhh\\.nuget\\packages\\entityframeworkcore.exceptions.common\\6.0.3\\entityframeworkcore.exceptions.common.6.0.3.nupkg.sha512",
+    "C:\\Users\\tyhh\\.nuget\\packages\\entityframeworkcore.exceptions.postgresql\\6.0.3\\entityframeworkcore.exceptions.postgresql.6.0.3.nupkg.sha512",
     "C:\\Users\\tyhh\\.nuget\\packages\\erroror\\1.2.1\\erroror.1.2.1.nupkg.sha512",
     "C:\\Users\\tyhh\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\tyhh\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",

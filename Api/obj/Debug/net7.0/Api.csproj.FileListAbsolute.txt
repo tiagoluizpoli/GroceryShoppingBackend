@@ -180,3 +180,5 @@ D:\03 - Development\01 - Projetos\GroceryShopping\GroceryShoppingBackend\Api\bin
 D:\03 - Development\01 - Projetos\GroceryShopping\GroceryShoppingBackend\Api\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Binder.dll
 D:\03 - Development\01 - Projetos\GroceryShopping\GroceryShoppingBackend\Api\bin\Debug\net7.0\Microsoft.Extensions.Hosting.dll
 D:\03 - Development\01 - Projetos\GroceryShopping\GroceryShoppingBackend\Api\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+D:\03 - Development\01 - Projetos\GroceryShopping\GroceryShoppingBackend\Api\bin\Debug\net7.0\EntityFramework.Exceptions.Common.dll
+D:\03 - Development\01 - Projetos\GroceryShopping\GroceryShoppingBackend\Api\bin\Debug\net7.0\EntityFramework.Exceptions.PostgreSQL.dll

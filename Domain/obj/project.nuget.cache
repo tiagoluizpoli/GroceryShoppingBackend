@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "RzDefdmBneNHe1+KNx/wsqR3ukMY+lCYT9TK6AOmRbh1MFfJU4fkM5AVwHwApVB5Ef+xmILlHnvxW86nDl5Wcg==",
+  "dgSpecHash": "4xRQ4H2seT+4dL+ZyCKEChgh8p2x0EN3kx5VMMFisLfUgvoKjGjISdhOA6eGeiPGuJi0tNk3wM32Q2+NLgYMcg==",
   "success": true,
   "projectFilePath": "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\tyhh\\.nuget\\packages\\entityframeworkcore.exceptions.common\\6.0.3\\entityframeworkcore.exceptions.common.6.0.3.nupkg.sha512",
+    "C:\\Users\\tyhh\\.nuget\\packages\\entityframeworkcore.exceptions.postgresql\\6.0.3\\entityframeworkcore.exceptions.postgresql.6.0.3.nupkg.sha512",
     "C:\\Users\\tyhh\\.nuget\\packages\\erroror\\1.2.1\\erroror.1.2.1.nupkg.sha512",
     "C:\\Users\\tyhh\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\tyhh\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.3\\microsoft.entityframeworkcore.7.0.3.nupkg.sha512",

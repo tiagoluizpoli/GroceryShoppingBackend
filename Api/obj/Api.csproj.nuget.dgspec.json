@@ -392,6 +392,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "EntityFrameworkCore.Exceptions.PostgreSQL": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
             "ErrorOr": {
               "target": "Package",
               "version": "[1.2.1, )"
@@ -496,6 +500,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "EntityFrameworkCore.Exceptions.PostgreSQL": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
             "ErrorOr": {
               "target": "Package",
               "version": "[1.2.1, )"
