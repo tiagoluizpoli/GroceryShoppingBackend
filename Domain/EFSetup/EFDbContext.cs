@@ -28,7 +28,9 @@ namespace Domain.EFSetup
         public DbSet<LocationEntity> Location { get; set; }
         public DbSet<MarketEntity> Market { get; set; }
         public DbSet<ShoppingEventEntity> ShoppingEvent { get; set; }
+        public DbSet<ShoppingCartEntity> ShoppingCart { get; set; }
         public DbSet<ShoppingListEntity> ShoppingList { get; set; }
+        public DbSet<ShoppingListItems> ShoppingListItems { get; set; }
         public DbSet<UserEntity> User { get; set; }
         public DbSet<MergedProductEntity> MergedProduct { get; set; }
         

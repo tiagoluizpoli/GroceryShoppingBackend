@@ -14,7 +14,7 @@ namespace Domain.EFSetup.Entities
         }
 
         public ShoppingEventEntity(DateTime startDateTime, Guid startedById, UserEntity startedBy, Guid familyId,
-            FamilyEntity family, Guid marketId, MarketEntity market, List<ShoppingListEntity> shoppingListEntities)
+            FamilyEntity family, Guid marketId, MarketEntity market, List<ShoppingCartEntity> shoppingListEntities)
         {
             StartDateTime = startDateTime;
             StartedById = startedById;
@@ -34,6 +34,6 @@ namespace Domain.EFSetup.Entities
         public Guid MarketId { get; set; }
         public MarketEntity Market { get; set; }
 
-        public List<ShoppingListEntity> ShoppingListEntities { get; set; }
+        public List<ShoppingCartEntity> ShoppingListEntities { get; set; }
     }
 }

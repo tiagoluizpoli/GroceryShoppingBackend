@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Domain.EFSetup.Configurations;
 
-public class ShoppingListConfiguration : IEntityTypeConfiguration<ShoppingListEntity>
+public class ShoppingCartConfiguration : IEntityTypeConfiguration<ShoppingCartEntity>
 {
-    public void Configure(EntityTypeBuilder<ShoppingListEntity> builder)
+    public void Configure(EntityTypeBuilder<ShoppingCartEntity> builder)
     {
         builder.HasKey(sl => sl.Id);
 
