@@ -23,6 +23,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseApiWeb();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

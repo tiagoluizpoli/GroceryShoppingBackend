@@ -2,6 +2,7 @@
 using Application.Services.Interfaces;
 using Contracts.Users;
 using Domain.EFSetup.Entities;
+using ErrorOr;
 using MapsterMapper;
 
 namespace Application.Services.Implementations;
@@ -21,20 +22,19 @@ public class UserService : IUserService
         _familyRepository = familyRepository;
     }
 
-    public async Task<UserResponseContract> AddUser(NewUserContract request)
+    public async Task<ErrorOr<UserResponseContract>> AddUser(NewUserContract request)
     {
         UserEntity User = _mapper.Map<UserEntity>(request);
 
         if (request.FamilyId != null)
         {
-            FamilyEntity? family = await _familyRepository.GetById(request.FamilyId.Value);
-            if (family is not null)
+            var Family = await _familyRepository.GetById(request.FamilyId.Value);
+            if (Family.IsError)
             {
-                User.FamilyEntity = family;
+                return Family.Errors;
             }
+            User.FamilyEntity = Family.Value;
         }
-        _userRepository.Add(User);
-        
         if (request.Family is not null)
         {
             FamilyEntity NewFamily = new FamilyEntity()
@@ -45,10 +45,20 @@ public class UserService : IUserService
             };
             // _familyRepository.Add(NewFamily); 
             User.FamilyEntity = NewFamily;
-            _userRepository.Update(User);
+            // _userRepository.Update(User);
+        }
+        ErrorOr<Created> AddUserResponse = await _userRepository.Add(User);
+
+        if (AddUserResponse.IsError)
+        {
+            return AddUserResponse.Errors;
         }
         
-        
         return _mapper.Map<UserResponseContract>(User);
+    }
+
+    public Task<ErrorOr<List<UserResponseContract>>> GetUsers()
+    {
+        throw new NotImplementedException();
     }
 }

@@ -176,3 +176,7 @@ D:\03 - Development\01 - Projetos\GroceryShopping\GroceryShoppingBackend\Api\obj
 D:\03 - Development\01 - Projetos\GroceryShopping\GroceryShoppingBackend\Api\obj\Debug\net7.0\Api.pdb
 D:\03 - Development\01 - Projetos\GroceryShopping\GroceryShoppingBackend\Api\obj\Debug\net7.0\Api.genruntimeconfig.cache
 D:\03 - Development\01 - Projetos\GroceryShopping\GroceryShoppingBackend\Api\obj\Debug\net7.0\ref\Api.dll
+D:\03 - Development\01 - Projetos\GroceryShopping\GroceryShoppingBackend\Api\bin\Debug\net7.0\ErrorOr.dll
+D:\03 - Development\01 - Projetos\GroceryShopping\GroceryShoppingBackend\Api\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\03 - Development\01 - Projetos\GroceryShopping\GroceryShoppingBackend\Api\bin\Debug\net7.0\Microsoft.Extensions.Hosting.dll
+D:\03 - Development\01 - Projetos\GroceryShopping\GroceryShoppingBackend\Api\bin\Debug\net7.0\Microsoft.Extensions.Options.dll

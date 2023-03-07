@@ -1,8 +1,10 @@
 ﻿using Contracts.Users;
+using ErrorOr;
 
 namespace Application.Services.Interfaces;
 
 public interface IUserService
 {
-    Task<UserResponseContract> AddUser(NewUserContract request);
+    Task<ErrorOr<UserResponseContract>> AddUser(NewUserContract request);
+    Task<ErrorOr<List<UserResponseContract>>> GetUsers();
 }

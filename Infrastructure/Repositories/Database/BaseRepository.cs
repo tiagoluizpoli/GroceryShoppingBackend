@@ -1,6 +1,9 @@
 ﻿using Application.Repositories.Database;
 using Domain.EFSetup;
+using Domain.Errors.Errors.DatabaseErrors;
+using ErrorOr;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace Infrastructure.Repositories.Database;
 
@@ -15,31 +18,74 @@ public class BaseRepository<EntityType> : IBaseRepository<EntityType> where Enti
         _dbSet = context.Set<EntityType>();
     }
 
-    public void Add(EntityType obj)
+    public async Task<ErrorOr<Created>> Add(EntityType obj)
     {
-        _dbSet.Add(obj);
-        _context.SaveChanges();
+        try
+        {
+            await _dbSet.AddAsync(obj);
+            await _context.SaveChangesAsync();
+            return Result.Created;
+        }
+        catch (DbUpdateException ex)
+        {
+            return DatabaseErrors.General.DatabaseGeneralError(ex);
+        }
+
+        catch (Exception ex)
+        {
+            return DatabaseErrors.General.DatabaseGeneralError(ex);
+        }
     }
 
-    public void Delete(EntityType obj)
+    public ErrorOr<Deleted> Delete(EntityType obj)
     {
-        _dbSet.Remove(obj);
-        _context.SaveChanges();
+        try
+        {
+            _dbSet.Remove(obj);
+            _context.SaveChanges();
+            return Result.Deleted;
+        }
+        catch (Exception ex)
+        {
+            return DatabaseErrors.General.DatabaseGeneralError(ex);
+        }
     }
 
-    public void Update(EntityType obj)
+    public ErrorOr<Updated> Update(EntityType obj)
     {
-        _dbSet.Update(obj);
-        _context.SaveChanges();
+        try
+        {
+            _dbSet.Update(obj);
+            _context.SaveChanges();
+            return Result.Updated;
+        }
+        catch (Exception ex)
+        {
+            return DatabaseErrors.General.DatabaseGeneralError(ex);
+        }
     }
 
-    public async Task<EntityType?> GetById(Guid Id)
+    public async Task<ErrorOr<EntityType?>> GetById(Guid Id)
     {
-        return await _dbSet.FindAsync(Id);
+        try
+        {
+            return await _dbSet.FindAsync(Id);
+        }
+        catch (Exception ex)
+        {
+            return DatabaseErrors.General.DatabaseGeneralError(ex);
+        }
     }
 
-    public async Task<List<EntityType>> GetAll()
+    public async Task<ErrorOr<List<EntityType>>> GetAll()
     {
-        return await _dbSet.ToListAsync();
+        try
+        {
+            return await _dbSet.ToListAsync();
+        }
+        catch (Exception ex)
+        {
+            return DatabaseErrors.General.DatabaseGeneralError(ex);
+        }
     }
 }
