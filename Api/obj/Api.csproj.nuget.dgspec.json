@@ -33,6 +33,9 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
+              "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Application\\Application.csproj": {
+                "projectPath": "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Application\\Application.csproj"
+              },
               "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Contracts\\Contracts.csproj": {
                 "projectPath": "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Contracts\\Contracts.csproj"
               },
@@ -52,6 +55,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "ErrorOr": {
+              "target": "Package",
+              "version": "[1.2.1, )"
+            },
             "Microsoft.AspNet.Mvc": {
               "target": "Package",
               "version": "[5.2.9, )"
@@ -216,6 +223,9 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
+              "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Contracts\\Contracts.csproj": {
+                "projectPath": "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Contracts\\Contracts.csproj"
+              },
               "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Domain\\Domain.csproj": {
                 "projectPath": "D:\\03 - Development\\01 - Projetos\\GroceryShopping\\GroceryShoppingBackend\\Domain\\Domain.csproj"
               }
@@ -232,6 +242,30 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "ErrorOr": {
+              "target": "Package",
+              "version": "[1.2.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.1, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.5.1, )"
+            },
+            "Mapster": {
+              "target": "Package",
+              "version": "[7.4.0-pre06, )"
+            },
+            "Mapster.Core": {
+              "target": "Package",
+              "version": "[1.2.1-pre04, )"
+            },
+            "Mapster.DependencyInjection": {
+              "target": "Package",
+              "version": "[1.0.1-pre02, )"
+            },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -358,6 +392,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "ErrorOr": {
+              "target": "Package",
+              "version": "[1.2.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.3, )"
@@ -367,6 +405,26 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
@@ -438,6 +496,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "ErrorOr": {
+              "target": "Package",
+              "version": "[1.2.1, )"
+            },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[7.0.0, )"

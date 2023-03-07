@@ -31,6 +31,9 @@ namespace Api.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
                     b.Property<bool>("Enabled")
                         .HasColumnType("boolean");
 
@@ -41,16 +44,13 @@ namespace Api.Migrations
                     b.Property<Guid>("OwnerId")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("String")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OwnerId");
+                    b.HasIndex("OwnerId")
+                        .IsUnique();
 
                     b.ToTable("Family");
                 });
@@ -89,6 +89,9 @@ namespace Api.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
                     b.Property<bool>("Enabled")
                         .HasColumnType("boolean");
 
@@ -99,10 +102,6 @@ namespace Api.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("String")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -151,6 +150,9 @@ namespace Api.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
                     b.Property<bool>("Enabled")
                         .HasColumnType("boolean");
 
@@ -165,10 +167,6 @@ namespace Api.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("String")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -180,6 +178,45 @@ namespace Api.Migrations
                     b.HasIndex("MergedProductId");
 
                     b.ToTable("Product");
+                });
+
+            modelBuilder.Entity("Domain.EFSetup.Entities.ShoppingCartEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<double>("FaceValue")
+                        .HasColumnType("double precision");
+
+                    b.Property<int>("MinWholesaleQuantity")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("ShoppingEventId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<double>("WholesaleFaceValue")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("ShoppingEventId");
+
+                    b.ToTable("ShoppingCart");
                 });
 
             modelBuilder.Entity("Domain.EFSetup.Entities.ShoppingEventEntity", b =>
@@ -226,37 +263,54 @@ namespace Api.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<double>("FaceValue")
-                        .HasColumnType("double precision");
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
 
-                    b.Property<bool>("Grabbed")
+                    b.Property<bool>("Enabled")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("MinWholesaleQuantity")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("ProductId")
-                        .HasColumnType("uuid");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("ShoppingEventId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<double>("WholesaleFaceValue")
-                        .HasColumnType("double precision");
+                    b.HasKey("Id");
+
+                    b.ToTable("ShoppingList");
+                });
+
+            modelBuilder.Entity("Domain.EFSetup.Entities.ShoppingListItems", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("Grabbed")
+                        .HasColumnType("boolean");
+
+                    b.Property<Guid>("ListId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ListId");
 
-                    b.HasIndex("ShoppingEventId");
-
-                    b.ToTable("ShoppingList");
+                    b.ToTable("ShoppingListItems");
                 });
 
             modelBuilder.Entity("Domain.EFSetup.Entities.UserEntity", b =>
@@ -275,7 +329,7 @@ namespace Api.Migrations
                     b.Property<bool>("Enabled")
                         .HasColumnType("boolean");
 
-                    b.Property<Guid>("FamilyId")
+                    b.Property<Guid?>("FamilyId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("LastName")
@@ -295,6 +349,9 @@ namespace Api.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
                     b.HasIndex("FamilyId");
 
                     b.ToTable("User");
@@ -303,8 +360,8 @@ namespace Api.Migrations
             modelBuilder.Entity("Domain.EFSetup.Entities.FamilyEntity", b =>
                 {
                     b.HasOne("Domain.EFSetup.Entities.UserEntity", "Owner")
-                        .WithMany()
-                        .HasForeignKey("OwnerId")
+                        .WithOne("FamilyOwned")
+                        .HasForeignKey("Domain.EFSetup.Entities.FamilyEntity", "OwnerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -331,6 +388,25 @@ namespace Api.Migrations
                         .IsRequired();
 
                     b.Navigation("MergedProduct");
+                });
+
+            modelBuilder.Entity("Domain.EFSetup.Entities.ShoppingCartEntity", b =>
+                {
+                    b.HasOne("Domain.EFSetup.Entities.ProductEntity", "Product")
+                        .WithMany("ShoppingList")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.EFSetup.Entities.ShoppingEventEntity", "ShoppingEvent")
+                        .WithMany("ShoppingListEntities")
+                        .HasForeignKey("ShoppingEventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("ShoppingEvent");
                 });
 
             modelBuilder.Entity("Domain.EFSetup.Entities.ShoppingEventEntity", b =>
@@ -360,32 +436,22 @@ namespace Api.Migrations
                     b.Navigation("StartedBy");
                 });
 
-            modelBuilder.Entity("Domain.EFSetup.Entities.ShoppingListEntity", b =>
+            modelBuilder.Entity("Domain.EFSetup.Entities.ShoppingListItems", b =>
                 {
-                    b.HasOne("Domain.EFSetup.Entities.ProductEntity", "Product")
-                        .WithMany("ShoppingList")
-                        .HasForeignKey("ProductId")
+                    b.HasOne("Domain.EFSetup.Entities.ShoppingListEntity", "List")
+                        .WithMany("Items")
+                        .HasForeignKey("ListId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.EFSetup.Entities.ShoppingEventEntity", "ShoppingEvent")
-                        .WithMany("ShoppingListEntities")
-                        .HasForeignKey("ShoppingEventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-
-                    b.Navigation("ShoppingEvent");
+                    b.Navigation("List");
                 });
 
             modelBuilder.Entity("Domain.EFSetup.Entities.UserEntity", b =>
                 {
                     b.HasOne("Domain.EFSetup.Entities.FamilyEntity", "FamilyEntity")
                         .WithMany("Members")
-                        .HasForeignKey("FamilyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FamilyId");
 
                     b.Navigation("FamilyEntity");
                 });
@@ -423,8 +489,16 @@ namespace Api.Migrations
                     b.Navigation("ShoppingListEntities");
                 });
 
+            modelBuilder.Entity("Domain.EFSetup.Entities.ShoppingListEntity", b =>
+                {
+                    b.Navigation("Items");
+                });
+
             modelBuilder.Entity("Domain.EFSetup.Entities.UserEntity", b =>
                 {
+                    b.Navigation("FamilyOwned")
+                        .IsRequired();
+
                     b.Navigation("ShoppingEventEntities");
                 });
 #pragma warning restore 612, 618
