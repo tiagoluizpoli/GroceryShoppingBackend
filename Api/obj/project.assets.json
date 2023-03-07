@@ -1053,6 +1053,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
+          "Application": "1.0.0",
           "Contracts": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.AspNet.Mvc": "5.2.9",

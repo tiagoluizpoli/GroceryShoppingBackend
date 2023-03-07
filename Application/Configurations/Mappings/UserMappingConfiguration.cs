@@ -11,8 +11,8 @@ public class UserMappingConfiguration : IRegister
     {
         config.AllowImplicitDestinationInheritance = true;
 
-        config.NewConfig<NewUserContract, UserEntity>()
-            .Map(dest => dest.FamilyEntity, src => src.Family);
+        config.NewConfig<UserEntity, UserResponseContract>()
+            .Map(dest => dest.Family, src => src.FamilyEntity);
 
     }
 }

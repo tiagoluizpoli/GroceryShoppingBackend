@@ -32,10 +32,11 @@ namespace Domain.EFSetup.Entities
         public string LastName { get; set; }
         public string SocialSecurityNumber { get; set; }
         public string Email { get; set; }
-        public bool Enabled { get; set; }
-        public Guid FamilyId { get; set; }
-        public FamilyEntity FamilyEntity { get; set; }
+        public bool Enabled { get; set; } = true;
+        public Guid? FamilyId { get; set; }
+        public FamilyEntity? FamilyEntity { get; set; }
 
+        public FamilyEntity FamilyOwned { get; set; }
         public List<ShoppingEventEntity> ShoppingEventEntities { get; set; }
     }
 }

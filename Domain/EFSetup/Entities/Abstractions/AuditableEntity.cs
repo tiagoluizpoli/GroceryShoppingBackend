@@ -10,8 +10,7 @@ namespace Domain.EFSetup.Entities.Abstractions
     {
         protected AuditableEntity()
         {
-            Id = Guid.NewGuid();
-            CreatedAt = DateTime.UtcNow;
+          
         }
 
         protected AuditableEntity(Guid id, DateTime createdAt, DateTime updatedAt)

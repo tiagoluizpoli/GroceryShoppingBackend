@@ -9,10 +9,10 @@ public class BaseRepository<EntityType> : IBaseRepository<EntityType> where Enti
     protected readonly EFDbContext _context;
     protected readonly DbSet<EntityType> _dbSet;
 
-    public BaseRepository(DbSet<EntityType> dbSet, EFDbContext context)
+    public BaseRepository(EFDbContext context)
     {
-        _dbSet = dbSet;
         _context = context;
+        _dbSet = context.Set<EntityType>();
     }
 
     public void Add(EntityType obj)

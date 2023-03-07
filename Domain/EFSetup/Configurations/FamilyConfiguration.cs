@@ -9,12 +9,7 @@ public class FamilyConfiguration : IEntityTypeConfiguration<FamilyEntity>
     public void Configure(EntityTypeBuilder<FamilyEntity> builder)
     {
         builder
-            .HasOne(f => f.Owner);
-           
-
-        builder
-            .HasMany(f => f.Members)
-            .WithOne(u => u.FamilyEntity)
-            .HasForeignKey(f => f.FamilyId);
+            .HasOne(f => f.Owner)
+            .WithOne(u => u.FamilyOwned);
     }
 }

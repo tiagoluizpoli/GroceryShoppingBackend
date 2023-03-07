@@ -31,6 +31,9 @@ namespace Api.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
                     b.Property<bool>("Enabled")
                         .HasColumnType("boolean");
 
@@ -41,16 +44,13 @@ namespace Api.Migrations
                     b.Property<Guid>("OwnerId")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("String")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OwnerId");
+                    b.HasIndex("OwnerId")
+                        .IsUnique();
 
                     b.ToTable("Family");
                 });
@@ -89,6 +89,9 @@ namespace Api.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
                     b.Property<bool>("Enabled")
                         .HasColumnType("boolean");
 
@@ -99,10 +102,6 @@ namespace Api.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("String")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -151,6 +150,9 @@ namespace Api.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
                     b.Property<bool>("Enabled")
                         .HasColumnType("boolean");
 
@@ -162,10 +164,6 @@ namespace Api.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("String")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -275,7 +273,7 @@ namespace Api.Migrations
                     b.Property<bool>("Enabled")
                         .HasColumnType("boolean");
 
-                    b.Property<Guid>("FamilyId")
+                    b.Property<Guid?>("FamilyId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("LastName")
@@ -303,8 +301,8 @@ namespace Api.Migrations
             modelBuilder.Entity("Domain.EFSetup.Entities.FamilyEntity", b =>
                 {
                     b.HasOne("Domain.EFSetup.Entities.UserEntity", "Owner")
-                        .WithMany()
-                        .HasForeignKey("OwnerId")
+                        .WithOne("FamilyOwned")
+                        .HasForeignKey("Domain.EFSetup.Entities.FamilyEntity", "OwnerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -383,9 +381,7 @@ namespace Api.Migrations
                 {
                     b.HasOne("Domain.EFSetup.Entities.FamilyEntity", "FamilyEntity")
                         .WithMany("Members")
-                        .HasForeignKey("FamilyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FamilyId");
 
                     b.Navigation("FamilyEntity");
                 });
@@ -425,6 +421,9 @@ namespace Api.Migrations
 
             modelBuilder.Entity("Domain.EFSetup.Entities.UserEntity", b =>
                 {
+                    b.Navigation("FamilyOwned")
+                        .IsRequired();
+
                     b.Navigation("ShoppingEventEntities");
                 });
 #pragma warning restore 612, 618

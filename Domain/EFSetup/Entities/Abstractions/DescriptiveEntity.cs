@@ -2,12 +2,12 @@
 
 public abstract class DescriptiveEntity : AuditableEntity
 {
-    protected DescriptiveEntity()
+    public DescriptiveEntity()
     {
     }
 
 
-    protected DescriptiveEntity(Guid id, DateTime createdAt, DateTime updatedAt, string name, string? description,
+    public DescriptiveEntity(Guid id, DateTime createdAt, DateTime updatedAt, string name, string? description,
         bool enabled) : base(id, createdAt, updatedAt)
     {
         Name = name;
@@ -17,5 +17,5 @@ public abstract class DescriptiveEntity : AuditableEntity
 
     public string Name { get; set; }
     public string? Description { get; set; }
-    public bool Enabled { get; set; }
+    public bool Enabled { get; set; } = true;
 }

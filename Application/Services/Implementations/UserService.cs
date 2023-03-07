@@ -33,17 +33,22 @@ public class UserService : IUserService
                 User.FamilyEntity = family;
             }
         }
-        else if (request.Family is not null)
+        _userRepository.Add(User);
+        
+        if (request.Family is not null)
         {
-            User.FamilyEntity = new FamilyEntity()
+            FamilyEntity NewFamily = new FamilyEntity()
             {
                 Name = request.Family.Name,
-                Description = request.Family.Description
+                Description = request.Family.Description,
+                Owner = User
             };
+            // _familyRepository.Add(NewFamily); 
+            User.FamilyEntity = NewFamily;
+            _userRepository.Update(User);
         }
-
-        _userRepository.Add(User);
-
-        throw new NotImplementedException();
+        
+        
+        return _mapper.Map<UserResponseContract>(User);
     }
 }
