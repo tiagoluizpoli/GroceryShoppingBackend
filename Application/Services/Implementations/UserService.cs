@@ -33,27 +33,17 @@ public class UserService : IUserService
             {
                 return Family.Errors;
             }
+
             User.FamilyEntity = Family.Value;
         }
-        if (request.Family is not null)
-        {
-            FamilyEntity NewFamily = new FamilyEntity()
-            {
-                Name = request.Family.Name,
-                Description = request.Family.Description,
-                Owner = User
-            };
-            // _familyRepository.Add(NewFamily); 
-            User.FamilyEntity = NewFamily;
-            // _userRepository.Update(User);
-        }
+
         ErrorOr<Created> AddUserResponse = await _userRepository.Add(User);
 
         if (AddUserResponse.IsError)
         {
             return AddUserResponse.Errors;
         }
-        
+
         return _mapper.Map<UserResponseContract>(User);
     }
 

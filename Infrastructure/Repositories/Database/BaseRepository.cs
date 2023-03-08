@@ -1,6 +1,8 @@
-﻿using Application.Repositories.Database;
+﻿using System.Data;
+using Application.Repositories.Database;
 using Domain.EFSetup;
 using Domain.Errors.Errors.DatabaseErrors;
+using EntityFramework.Exceptions.Common;
 using ErrorOr;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,8 +11,8 @@ namespace Infrastructure.Repositories.Database;
 
 public class BaseRepository<EntityType> : IBaseRepository<EntityType> where EntityType : class
 {
-    protected readonly EFDbContext _context;
-    protected readonly DbSet<EntityType> _dbSet;
+    private readonly EFDbContext _context;
+    private readonly DbSet<EntityType> _dbSet;
 
     public BaseRepository(EFDbContext context)
     {
@@ -26,11 +28,14 @@ public class BaseRepository<EntityType> : IBaseRepository<EntityType> where Enti
             await _context.SaveChangesAsync();
             return Result.Created;
         }
-        catch (DbUpdateException ex)
+        catch (InvalidOperationException ex)
         {
             return DatabaseErrors.General.DatabaseGeneralError(ex);
         }
-
+        catch (UniqueConstraintException ex)
+        {
+            return DatabaseErrors.Entity.UniqueConstraint(ex);
+        }
         catch (Exception ex)
         {
             return DatabaseErrors.General.DatabaseGeneralError(ex);
