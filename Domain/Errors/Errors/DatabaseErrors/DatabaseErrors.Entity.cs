@@ -1,4 +1,6 @@
-﻿using ErrorOr;
+﻿using EntityFramework.Exceptions.Common;
+using ErrorOr;
+using Npgsql;
 
 namespace Domain.Errors.Errors.DatabaseErrors;
 
@@ -16,11 +18,24 @@ public static partial class DatabaseErrors
                 description: $"{entityName} doesn't exists");
         }
 
-        public static Error UniqueConstraint(Exception exception)
+        public static List<Error> UniqueConstraint(Exception exception)
         {
-            return Error.Conflict(
-                code: $"{ErrorBase}UniqueConstraint",
-                description: $"Details: {exception.Message}");
+            UniqueConstraintException parsedException = (UniqueConstraintException)exception;
+            PostgresException parsedInnerException = (PostgresException)parsedException.InnerException;
+            var errors = new List<Error>()
+            {
+                {
+                    Error.Conflict(
+                        code: $"{ErrorBase}UniqueConstraint",
+                        description: $"Details: {parsedException.Message}")
+                },
+                {
+                    Error.Conflict(
+                        code: $"{ErrorBase}UniqueConstraint.{parsedInnerException.ConstraintName}",
+                        description: $"Details: {parsedException.InnerException.Message}")
+                }
+            };
+            return errors;
         }
     }
 }

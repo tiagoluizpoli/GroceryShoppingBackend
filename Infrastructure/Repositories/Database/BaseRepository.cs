@@ -11,8 +11,8 @@ namespace Infrastructure.Repositories.Database;
 
 public class BaseRepository<EntityType> : IBaseRepository<EntityType> where EntityType : class
 {
-    protected readonly EFDbContext _context;
-    protected readonly DbSet<EntityType> _dbSet;
+    private readonly EFDbContext _context;
+    private readonly DbSet<EntityType> _dbSet;
 
     public BaseRepository(EFDbContext context)
     {
@@ -32,7 +32,6 @@ public class BaseRepository<EntityType> : IBaseRepository<EntityType> where Enti
         {
             return DatabaseErrors.General.DatabaseGeneralError(ex);
         }
-
         catch (UniqueConstraintException ex)
         {
             return DatabaseErrors.Entity.UniqueConstraint(ex);
