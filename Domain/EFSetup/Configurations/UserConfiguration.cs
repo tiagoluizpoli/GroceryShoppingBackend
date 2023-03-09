@@ -9,7 +9,7 @@ public class UserConfiguration : IEntityTypeConfiguration<UserEntity>
     public void Configure(EntityTypeBuilder<UserEntity> builder)
     {
         builder
-            .HasOne(u => u.FamilyEntity)
+            .HasOne(u => u.Family)
             .WithMany(fe => fe.Members)
             .HasForeignKey(u => u.FamilyId)
             .IsRequired(false);

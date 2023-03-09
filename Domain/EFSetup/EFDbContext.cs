@@ -43,6 +43,24 @@ namespace Domain.EFSetup
             return base.SaveChanges();
         }
 
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        {
+            IEnumerable<EntityEntry> entries = ChangeTracker
+                .Entries()
+                .Where(e => e.Entity is AuditableEntity && e.State is EntityState.Added or EntityState.Modified);
+
+            foreach (var entityEntry in entries)
+            {
+                ((AuditableEntity)entityEntry.Entity).UpdatedAt = DateTime.UtcNow;
+
+                if (entityEntry.State == EntityState.Added)
+                {
+                    ((AuditableEntity)entityEntry.Entity).CreatedAt = DateTime.UtcNow;
+                }
+            }
+            return base.SaveChangesAsync(cancellationToken);
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseExceptionProcessor();

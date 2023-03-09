@@ -16,11 +16,11 @@ namespace Domain.EFSetup.Configurations
             builder.HasKey(p => p.Id);
             builder.HasIndex(p => p.BarCode).IsUnique();
 
-            builder.HasOne(p => p.MergedProduct)
-                .WithMany(mp => mp.Products);
-
-
-
+            builder
+                .HasOne(p => p.MergedProduct)
+                .WithMany(mp => mp.Products)
+                .HasForeignKey(p => p.MergedProductId)
+                .IsRequired(false);
         }
     }
 }

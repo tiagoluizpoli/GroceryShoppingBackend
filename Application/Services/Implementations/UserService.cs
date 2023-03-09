@@ -34,7 +34,7 @@ public class UserService : IUserService
                 return Family.Errors;
             }
 
-            User.FamilyEntity = Family.Value;
+            User.Family = Family.Value;
         }
 
         ErrorOr<Created> AddUserResponse = await _userRepository.Add(User);
@@ -47,8 +47,14 @@ public class UserService : IUserService
         return _mapper.Map<UserResponseContract>(User);
     }
 
-    public Task<ErrorOr<List<UserResponseContract>>> GetUsers()
+    public async Task<ErrorOr<List<UserResponseContract>>> GetUsers()
     {
-        throw new NotImplementedException();
+        var Users = await _userRepository.GetAll(includeProperties: nameof(UserEntity.Family));
+        if (Users.IsError)
+        {
+            return Users.Errors;
+        }
+
+        return _mapper.Map<List<UserResponseContract>>(Users.Value);
     }
 }
