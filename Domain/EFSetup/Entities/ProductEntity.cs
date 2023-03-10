@@ -9,23 +9,31 @@ namespace Domain.EFSetup.Entities
 {
     public class ProductEntity : DescriptiveEntity
     {
-        public ProductEntity()
+        public void UpdateProduct(ProductEntity product)
         {
+            this.Name = product.Name;
+            Description = product.Description;
+            Enabled = product.Enabled;
+            if (product.BarCode is not null)
+            {
+                BarCode = product.BarCode;
+            }
+
+            if (product.ImgUrl is not null)
+            {
+                ImgUrl = product.ImgUrl;
+            }
+
+            if (product.MergedProduct is not null)
+            {
+                MergedProduct = product.MergedProduct;
+            }
         }
 
-        public ProductEntity(Guid id, DateTime createdAt, DateTime updatedAt, string name, string? description,
-            bool enabled, string barCode, string imgUrl, MergedProductEntity mergedProduct,
-            List<ShoppingCartEntity> shoppingList) : base(id, createdAt, updatedAt, name, description, enabled)
-        {
-            BarCode = barCode;
-            ImgUrl = imgUrl;
-            MergedProduct = mergedProduct;
-            ShoppingList = shoppingList;
-        }
-
-        public string BarCode { get; set; }
-        public string ImgUrl { get; set; }
-        public MergedProductEntity MergedProduct { get; set; }
+        public string? BarCode { get; set; }
+        public string? ImgUrl { get; set; }
+        public Guid? MergedProductId { get; set; }
+        public MergedProductEntity? MergedProduct { get; set; }
         public List<ShoppingCartEntity> ShoppingList { get; set; }
     }
 }
