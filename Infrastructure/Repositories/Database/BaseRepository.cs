@@ -44,12 +44,12 @@ public class BaseRepository<EntityType> : IBaseRepository<EntityType> where Enti
         }
     }
 
-    public ErrorOr<Deleted> Delete(EntityType obj)
+    public async Task<ErrorOr<Deleted>> Delete(EntityType obj)
     {
         try
         {
             _dbSet.Remove(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return Result.Deleted;
         }
         catch (Exception ex)
@@ -63,7 +63,7 @@ public class BaseRepository<EntityType> : IBaseRepository<EntityType> where Enti
         try
         {
             _dbSet.Update(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return Result.Updated;
         }
         catch (Exception ex)
@@ -81,9 +81,8 @@ public class BaseRepository<EntityType> : IBaseRepository<EntityType> where Enti
             {
                 return DatabaseErrors.Entity.NotFound<ProductEntity>(Id.ToString());
             }
-            
+
             return response;
-            
         }
         catch (Exception ex)
         {
@@ -107,7 +106,7 @@ public class BaseRepository<EntityType> : IBaseRepository<EntityType> where Enti
                 foreach (var includeProperty in includeProperties.Split(new char[] { ',' },
                              StringSplitOptions.RemoveEmptyEntries))
                 {
-                   query = query.Include(includeProperty);
+                    query = query.Include(includeProperty);
                 }
             }
 

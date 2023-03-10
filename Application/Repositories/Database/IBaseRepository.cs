@@ -11,9 +11,10 @@ namespace Application.Repositories.Database
     public interface IBaseRepository<EntityType> where EntityType : class
     {
         Task<ErrorOr<Created>> Add(EntityType obj);
-        ErrorOr<Deleted> Delete(EntityType obj);
+        Task<ErrorOr<Deleted>> Delete(EntityType obj);
         Task<ErrorOr<Updated>> Update(EntityType obj);
         Task<ErrorOr<EntityType?>> GetById(Guid Id);
+
         Task<ErrorOr<List<EntityType>>> GetAll(Expression<Func<EntityType, bool>> filter = null,
             string includeProperties = "");
     }
