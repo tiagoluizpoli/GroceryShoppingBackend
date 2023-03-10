@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v7.0": {
       "Domain/1.0.0": {
         "dependencies": {
+          "EntityFrameworkCore.Exceptions.PostgreSQL": "6.0.3",
           "ErrorOr": "1.2.1",
+          "FluentValidation": "11.5.1",
           "Microsoft.EntityFrameworkCore": "7.0.3",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.3",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
@@ -25,11 +27,42 @@
           "Domain.dll": {}
         }
       },
+      "EntityFrameworkCore.Exceptions.Common/6.0.3": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.3"
+        },
+        "runtime": {
+          "lib/net6.0/EntityFramework.Exceptions.Common.dll": {
+            "assemblyVersion": "6.0.3.0",
+            "fileVersion": "6.0.3.0"
+          }
+        }
+      },
+      "EntityFrameworkCore.Exceptions.PostgreSQL/6.0.3": {
+        "dependencies": {
+          "EntityFrameworkCore.Exceptions.Common": "6.0.3",
+          "Npgsql": "7.0.2"
+        },
+        "runtime": {
+          "lib/net6.0/EntityFramework.Exceptions.PostgreSQL.dll": {
+            "assemblyVersion": "6.0.3.0",
+            "fileVersion": "6.0.3.0"
+          }
+        }
+      },
       "ErrorOr/1.2.1": {
         "runtime": {
           "lib/net6.0/ErrorOr.dll": {
             "assemblyVersion": "1.2.1.0",
             "fileVersion": "1.2.1.0"
+          }
+        }
+      },
+      "FluentValidation/11.5.1": {
+        "runtime": {
+          "lib/net7.0/FluentValidation.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.5.1.0"
           }
         }
       },
@@ -732,12 +765,33 @@
       "serviceable": false,
       "sha512": ""
     },
+    "EntityFrameworkCore.Exceptions.Common/6.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nciNKB1xMYO5a9P6rvLttCFVWa+2gwaEeuKtBaQqO24CnhNXudOZ13P1/6jSlcmy3TdbUbB1LEwJFec2n/zGrQ==",
+      "path": "entityframeworkcore.exceptions.common/6.0.3",
+      "hashPath": "entityframeworkcore.exceptions.common.6.0.3.nupkg.sha512"
+    },
+    "EntityFrameworkCore.Exceptions.PostgreSQL/6.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kSibyS9x321oUCwiFxcyrj0pb1GeEklALTu5xh4MVvbnvpOl8xMSo9vXAzMVtk6a5m9lNv5oXTaSQ5b/w8LAUw==",
+      "path": "entityframeworkcore.exceptions.postgresql/6.0.3",
+      "hashPath": "entityframeworkcore.exceptions.postgresql.6.0.3.nupkg.sha512"
+    },
     "ErrorOr/1.2.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-5xcbQErEPQKq2z/sLwSaFPX3T2G7x4ISX0us0X7jSxXSQT/wlfOOhw4knPUN/GWOf2strhuzdvRA36JViwvu+A==",
       "path": "erroror/1.2.1",
       "hashPath": "erroror.1.2.1.nupkg.sha512"
+    },
+    "FluentValidation/11.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0h1Q5lNOLLyYTWMJmyNoMqhY4CBRvvUWvJP1R4F2CnmmzuWwvB0A8aVmw5+lOuwYnwUwCRrdeMLbc81F38ahNQ==",
+      "path": "fluentvalidation/11.5.1",
+      "hashPath": "fluentvalidation.11.5.1.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",

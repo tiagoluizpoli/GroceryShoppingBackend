@@ -14,6 +14,7 @@ namespace Infrastructure.DependencyExtensions
     {
         public static IServiceCollection AddDatabaseConfigured(this IServiceCollection services, IConfiguration configuration)
         {
+            // AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             services.AddDbContext<EFDbContext>(options =>
 
                 options.UseNpgsql(configuration.GetSection("AppSettings")["ConnectionString"],

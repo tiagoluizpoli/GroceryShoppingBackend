@@ -18,6 +18,13 @@ public class UserController : ApiController
         _userService = userService;
     }
 
+    [HttpGet("Get")]
+    public async Task<IActionResult> GetUsers()
+    {
+        var response = await _userService.GetUsers();
+        return response.Match(Ok, Problem);
+    }
+
     [HttpPost("Add")]
     public async Task<IActionResult> AddUser(NewUserContract user)
     {

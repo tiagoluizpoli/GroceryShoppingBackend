@@ -8,15 +8,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace Infrastructure
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddInfrastructureConfigured( this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddInfrastructureConfigured( this IServiceCollection services, IConfiguration configuration, ILoggingBuilder logging)
         {
             services.AddDatabaseConfigured(configuration);
             services.AddRepositoriesConfigured();
+            services.AddLoggingConfigured(logging);
 
             return services;
         }

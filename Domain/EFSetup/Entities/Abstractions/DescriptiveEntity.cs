@@ -7,8 +7,8 @@ public abstract class DescriptiveEntity : AuditableEntity
     }
 
 
-    public DescriptiveEntity(Guid id, DateTime createdAt, DateTime updatedAt, string name, string? description,
-        bool enabled) : base(id, createdAt, updatedAt)
+    public DescriptiveEntity(string name, string? description,
+        bool enabled)
     {
         Name = name;
         Description = description;

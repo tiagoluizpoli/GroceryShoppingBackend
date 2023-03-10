@@ -14,6 +14,7 @@ namespace Application
         {
 
             services.AddMappingsConfigured();
+            services.AddValidationsConfigured();
             services.AddServicesConfigured();
 
             return services;
